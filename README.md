@@ -23,7 +23,7 @@ const q = query()
 q.value();
 
 // results in:
-// { $top: 100, $skip; 1, $filter: "foo eq 1 or (foo le 2 and bar eq 'baz')", @baz: "world", $count: true }
+// { $top: 100, $skip: 1, $filter: "foo eq 1 or (foo le 2 and bar eq 'baz')", @baz: "world", $count: true }
 q.build();
 ```
 
