@@ -38,13 +38,13 @@ top x objects: ?*$top=2*
 skip by x objects: ?*$skip=2*
 
 `.filter(string)`
-adds a filter string, converting simple js sytax: ?*$filter=Name eq 'Example'*
+adds a filter string, converting simple js sytax: ?*$filter=name eq 'example'*
 
 `.search(string)`
-create a search filter: ?*$search=Price eq 0*
+create a search filter: ?*$search=price eq 0*
 
 `.orderBy(string || array)`
-orders the data: ?*$orderBy=Name*
+orders the data: ?*$orderby=name*
 
 `.count()`
 counts the result: ?*$count*
@@ -53,16 +53,16 @@ counts the result: ?*$count*
 indicates a batch body (multiple resources): ?*$batch*
 
 `.expand(string || array)`
-expands a related resource: ?*$expand=ProductUnit*
+expands a related resource: ?*$expand=product*
 
 `.select(string || array)`
-selects a related resource: ?*$select=ProductUnit*
+selects a related resource: ?*$select=product*
 
 `.format(string)`
 sets an override for the return format: ?*$format=json*
 
 `.alias(string, string)`
-sets an alias: ?*@word='Black'*
+sets an alias: ?*@word='black'*
 
 `.add(string, string)`
 adds a custom value to the query string, protecting the odata: ?*hello=world*
