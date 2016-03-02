@@ -1,0 +1,155 @@
+{
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "plugins": [
+        "react"
+    ],
+    "ecmaFeatures": {
+        "arrowFunctions": true,
+        "binaryLiterals": false,
+        "blockBindings": true,
+        "classes": false,
+        "defaultParams": true,
+        "destructuring": true,
+        "forOf": false,
+        "generators": false,
+        "modules": true,
+        "objectLiteralComputedProperties": true,
+        "objectLiteralDuplicateProperties": false,
+        "objectLiteralShorthandMethods": true,
+        "objectLiteralShorthandProperties": true,
+        "octalLiterals": false,
+        "regexUFlag": false,
+        "regexYFlag": false,
+        "restParams": true,
+        "spread": true,
+        "superInFunctions": false,
+        "templateStrings": true,
+        "unicodeCodePointEscapes": false,
+        "globalReturn": false,
+        "jsx": true
+    },
+    "rules": {
+        // require the use of semicolons
+        "semi": 2,
+        // require the use of === and !==
+        "eqeqeq": 2,
+        // disallow lonely if statments
+        "no-lonely-if": 2,
+        // disallow mixing spaces and tabs
+        "no-mixed-spaces-and-tabs": 2,
+        // enforce indentation at 4 spaces
+        "indent": [1, 4, { "SwitchCase": 4, "VariableDeclarator": { "var": 4, "let": 4, "const": 4 } }],
+        // allow multiple spaces so that alignment can be used
+        "no-multi-spaces": 0,
+        // disallow empty blocks. e.g.: for (...) {}
+        "no-lone-blocks": 2,
+        // disallow creating functions in a loop
+        "no-loop-func": 2,
+        // disallow eval
+        "no-eval": 2,
+        // enforce usage of single quotes
+        "quotes": [1, "single"],
+        // requiring a consistent return discourages exiting early or use of truthy/falsy values
+        "consistent-return": 0,
+        // files are not required to end in a new line, but it is recommended
+        "eol-last": 0,
+        // disallow return assignments. e.g.: return foo + 2;
+        "no-return-assign": 2,
+        // enforces { key: value } formatting
+        "key-spacing": [2, { "beforeColon": false, "afterColon": true, "mode": "minimum" }],
+        // disallows mixing requires with other variable initialization
+        "no-mixed-requires": 0,
+        // allow shadoing of variables declarations in new scopes
+        "no-shadow": 0,
+        // allow caps for variable names (since we do work with React)
+        "new-cap": 0,
+        // allow process.exit()...maybe disallow if this gets abused
+        "no-process-exit": 0,
+        // enforce or disallow variable initializations at definition
+        "init-declarations": 0,
+        // disallow the catch clause parameter name being the same as a variable in the outer scope
+        "no-catch-shadow": 0,
+        // disallow deletion of variables
+        "no-delete-var": 2,
+        // disallow labels that share a name with a variable
+        "no-label-var": 0,
+        // disallow shadowing of names such as arguments
+        "no-shadow-restricted-names": 2,
+        // disallow use of undefined when initializing variables
+        "no-undef-init": 0,
+        // disallow use of undeclared variables unless mentioned in a /*global */ block
+        "no-undef": 2,
+        // disallow use of undefined variable
+        "no-undefined": 0,
+        // disallow declaration of variables that are not used in the code
+        "no-unused-vars": [2, {"vars": "local", "args": "after-used"}],
+        // disallow use of variables before they are defined
+        "no-use-before-define": 2,
+        // enforce return after a callback
+        "callback-return": 0,
+        // enforces error handling in callbacks (node environment)
+        "handle-callback-err": 0,
+        // disallow use of new operator with the require function
+        "no-new-require": 0,
+        // disallow string concatenation with __dirname and __filename
+        "no-path-concat": 0,
+        // restrict usage of specified node modules...none restricted at this point
+        "no-restricted-modules": 0,
+        // disallow use of synchronous methods (off by default)
+        "no-sync": 0,
+        // Prevent missing displayName in a React component definition (off)
+        "react/display-name": 0,
+        // Enforce boolean attributes notation in JSX (disabled)
+        "react/jsx-boolean-value": 0,
+        // Enforce or disallow spaces inside of curly braces in JSX attributes
+        "react/jsx-curly-spacing": 0,
+        // Prevent duplicate props in JSX
+        "react/jsx-no-duplicate-props": 0,
+        // Disallow undeclared variables in JSX
+        "react/jsx-no-undef": 2,
+        // Enforce quote style for JSX attributes
+        "react/jsx-quotes": [1, "double", "avoid-escape"],
+        // Enforce propTypes declarations alphabetical sorting (disabled)
+        "react/jsx-sort-prop-types": 0,
+        // Enforce props alphabetical sorting (disabled)
+        "react/jsx-sort-props": 0,
+        // Prevent React to be incorrectly marked as unused
+        "react/jsx-uses-react": 2,
+        // Prevent variables used in JSX to be incorrectly marked as unused
+        "react/jsx-uses-vars": 2,
+        // Prevent usage of dangerous JSX properties...disabled by default cause React makes it clear when there's danger
+        "react/no-danger": 0,
+        // Prevent usage of setState in componentDidMount
+        "react/no-did-mount-set-state": [2, "allow-in-func"],
+        // Prevent usage of setState in componentDidUpdate
+        "react/no-did-update-set-state": 2,
+        // Prevent multiple component definition per file
+        "react/no-multi-comp": 2,
+        // Prevent usage of unknown DOM property
+        "react/no-unknown-property": 2,
+        // Prevent missing props validation in a React component definition
+        "react/prop-types": 0,
+        // Prevent missing React when using JSX
+        "react/react-in-jsx-scope": 2,
+        // Restrict file extensions that may be required
+        "react/require-extension": 0,
+        // Prevent extra closing tags for components without children
+        "react/self-closing-comp": 2,
+        // Enforce component methods order
+        "react/sort-comp": [2, {
+            "order": [
+                "lifecycle",
+                "/^on.+$/",
+                "/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
+                "everything-else",
+                "/^render.+$/",
+                "render"
+            ]
+        }],
+        // Prevent missing parentheses around multilines JSX
+        "react/wrap-multilines": 2
+    }
+}
