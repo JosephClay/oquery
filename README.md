@@ -67,6 +67,10 @@ sets an alias: ?*@word='Black'*
 `.add(string, string)`
 adds a custom value to the query string, protecting the odata: ?*hello=world*
 
+### Tests
+
+Run `npm test` after installing `npm i`
+
 #License
 
 The MIT License (MIT)
