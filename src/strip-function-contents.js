@@ -1,3 +1,6 @@
+// base regex came from:
+// http://stackoverflow.com/questions/14885995/how-to-get-a-functionss-body-as-string
+// additional ones were rolled by hand
 const stripRegularFunction = /function[^{]+\{([\s\S]*)\}$/;
 const stripArrowBracketedFunction = /\=\>[^{]+\{([\s\S]*)\}$/;
 const stripArrowFunction = /\=\>([\s\S]*)$/;
