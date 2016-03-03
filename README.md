@@ -43,7 +43,7 @@ adds a filter string, converting simple js sytax: ?*$filter=name eq 'example'*
 `.search(string)`
 create a search filter: ?*$search=price eq 0*
 
-`.orderBy(string || array)`
+`.orderby(string || array)`
 orders the data: ?*$orderby=name*
 
 `.count()`
