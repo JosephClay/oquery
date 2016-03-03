@@ -4,6 +4,7 @@ const formatCustom = require('../src/format-custom');
 const formatSearch = require('../src/format-search');
 const formatSelect = require('../src/format-select');
 const formatFilter = require('../src/format-filter');
+const strip = require('../src/strip-function-contents');
 
 test('general', assert => {
     assert.equal(formatGeneral(1), '1', 'numbers come back as strings');
@@ -33,7 +34,7 @@ test('search', assert => {
     assert.end();
 });
 
-test('filter', assert => {
+test('select', assert => {
     assert.equal(formatSelect('*'), '*', 'strings are untouched');
     assert.equal(formatSelect(['foo', 'bar']), 'foo,bar', 'arrays are converted into comma-delimited lists');
 
@@ -42,7 +43,7 @@ test('filter', assert => {
 
 test('filter', assert => {
     assert.equal(
-        formatFilter(`Name === bar && Price <= 0.57 || (Dollars + Cents === 0.60) and (LastName == baz)`),
+        formatFilter(`Name === bar && Price <= 0.57 || (Dollars + Cents === 0.60) && (LastName == baz)`),
         `Name eq 'bar' and Price le 0.57 or (Dollars add Cents eq 0.60) and (LastName eq 'baz')`,
         'filter string replacement'
     );
@@ -51,6 +52,19 @@ test('filter', assert => {
         formatFilter(`Name === @bar`),
         `Name eq @bar`,
         'filter format does not wrap an alias in quotes'
+    );
+
+    assert.end();
+});
+
+test('filter as function', assert => {
+    // here for linting
+    let Name, bar, Price, Dollars, Cents, LastName, baz;
+
+    assert.equal(
+        formatFilter(strip(() => Name === bar && Price <= 0.57 || (Dollars + Cents === 0.60) && (LastName == baz))),
+        `Name eq 'bar' and Price le 0.57 or (Dollars add Cents eq 0.60) and (LastName eq 'baz')`,
+        'filter string replacement'
     );
 
     assert.end();

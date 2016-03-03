@@ -1,13 +1,17 @@
 const isObject = require('lodash/isObject');
+const isString = require('lodash/isString');
 const validate = require('./src/validate');
 const serializeQuery = require('./src/serialize-query');
 const serializeCustom = require('./src/serialize-custom');
 const serializeAlias = require('./src/serialize-alias');
+const strip = require('./src/strip-function-contents');
 
 module.exports = function() {
     const query = new Map();
     const custom = {};
     const alias = {};
+
+    const add = (key, value) => query.set(key, value);
 
     const protect = function(key, validationFn, fn) {
         return function(value) {
@@ -17,8 +21,6 @@ module.exports = function() {
             return this;
         };
     };
-
-    const add = (key, value) => query.set(key, value);
 
     const build = () => {
         return Object.assign(
@@ -38,8 +40,10 @@ module.exports = function() {
         orderby: protect('$orderby', validate.path, add),
         expand: protect('$expand', validate.path, add),
         select: protect('$select', validate.path, add),
-        filter: protect('$filter', validate.str, add),
         search: protect('$search', validate.str, add),
+        filter: protect('$filter', validate.strOrFunc, function(key, value) {
+            add(key, isString(value) ? value : strip(value));
+        }),
 
         format: protect('$format', validate.str, function(key, value) {
             validate.formatBatchCount(query, key);

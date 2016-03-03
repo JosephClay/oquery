@@ -7,3 +7,4 @@ require('./query-allowance');
 require('./query-custom');
 require('./query-format');
 require('./query-methods');
+require('./function-stripper');

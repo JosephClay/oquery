@@ -1,4 +1,5 @@
 const isNumber = require('lodash/isNumber');
+const isFunction = require('lodash/isFunction');
 const isString = require('lodash/isString');
 const startsWith = require('lodash/startsWith');
 const name = 'oquery';
@@ -40,6 +41,11 @@ module.exports = {
     str(key, value) {
         if (!isString(value)) {
             throw new Error(`${name}: ${key} requires a string, passed ${value}`);
+        }
+    },
+    strOrFunc(key, value) {
+        if (!isString(value) && !isFunction(value)) {
+            throw new Error(`${name}: ${key} requires a string or function, passed ${value}`);
         }
     },
     num(key, value) {
