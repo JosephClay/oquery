@@ -1,7 +1,7 @@
 {
   "name": "oquery",
   "description": "odata query string generator",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./query.js",
   "dependencies": {
     "lodash": "^4.5.0"
