@@ -7,11 +7,11 @@ const format = {
     '$search': require('./format-search')
 };
 
-module.exports = function(obj) {
-    return Object.keys(obj)
-        .reduce((map, key) => {
-            const value = obj[key];
-            map[key] = (format[key] || general)(value);
-            return map;
+module.exports = function(map) {
+    return Object.keys(map)
+        .reduce((obj, key) => {
+            const value = map.get(key);
+            obj[key] = (format[key] || general)(value);
+            return obj;
         }, {});
 };
