@@ -8,10 +8,11 @@ const format = {
 };
 
 module.exports = function(map) {
-    return Object.keys(map)
-        .reduce((obj, key) => {
-            const value = map.get(key);
-            obj[key] = (format[key] || general)(value);
-            return obj;
-        }, {});
+    const obj = {};
+    map.forEach((value, key) => {
+        const value = map.get(key);
+        obj[key] = (format[key] || general)(value);
+        return obj;
+    });
+    return obj;
 };
