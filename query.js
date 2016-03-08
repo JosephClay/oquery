@@ -103,7 +103,11 @@ module.exports = function(imports) {
                 })
                 .join('&');
 
-            return `?${values}`;
+            return `${values}`;
+        },
+
+        query() {
+            return `?${this.value()}`;
         }
     };
 };
