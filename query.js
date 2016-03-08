@@ -5,8 +5,9 @@ const serializeQuery = require('./src/serialize-query');
 const serializeCustom = require('./src/serialize-custom');
 const serializeAlias = require('./src/serialize-alias');
 const strip = require('./src/strip-function-contents');
+const applyImports = require('./src/apply-imports');
 
-module.exports = function() {
+module.exports = function(imports) {
     const query = new Map();
     const custom = {};
     const alias = {};
@@ -29,6 +30,9 @@ module.exports = function() {
             serializeAlias(alias)
         );
     };
+
+    // this can have side-effects
+    if (imports) { applyImports(imports, query, custom, alias); }
 
     return {
         build,
