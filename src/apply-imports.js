@@ -7,7 +7,7 @@ module.exports = function(imports, query, custom, alias) {
 
             // query
             if (startsWith(key, '$')) {
-                return query.add(key, value);
+                return query.set(key, value);
             }
 
             // alias
